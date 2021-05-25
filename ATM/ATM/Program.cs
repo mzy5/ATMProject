@@ -13,14 +13,38 @@ namespace ATM
             string password = Console.ReadLine();
 
             Login login = new Login();
-            
+
+            while (login.checkLogin(username, password) == false)
+            {
+                Console.WriteLine("The username or password is incorrect! \nDo you want to try again? Press Y or N");
+                
+                char selectedChar = Console.ReadKey().KeyChar;
+                if (selectedChar == 'y' || selectedChar == 'Y')
+                {
+                    Console.Clear(); 
+                    Console.WriteLine("Insert username: ");
+                    username = Console.ReadLine();
+
+                    Console.WriteLine("Insert password: ");
+                    password = Console.ReadLine();
+                }
+                else if (selectedChar == 'n' || selectedChar == 'N')
+                {
+                    Console.Clear();
+                    Console.WriteLine("Nein? kay, bye!");
+                    Console.WriteLine("Press any key to close the console. ");
+                    Console.ReadKey();
+                    break;
+                }
+            }
+
             if(login.checkLogin(username, password))
             {
-                Console.WriteLine("The login is successful! ");
-            }
-            else
-            {
-                Console.WriteLine("The username or password is incorrect! ");
+                Console.WriteLine("The login was successful! ");
+                //Console.WriteLine("Press any key to continue. ");
+                //Console.ReadKey();
+
+                MainMenu mainMenu = new MainMenu();
             }
         }
 

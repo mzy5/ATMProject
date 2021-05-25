@@ -9,52 +9,40 @@ namespace ATM
         public static char Menu()
         {
             Console.WriteLine("Type an option's number and face its consequences: ");
-            Console.WriteLine("1st");
-            Console.WriteLine("2nd");
-            Console.WriteLine("3rd");
-            Console.WriteLine("4th");
-            Console.WriteLine("5th");
+            Console.WriteLine("1. Check balance ");
+            Console.WriteLine("2. Withdraw ");
+            Console.WriteLine("3. Top-up ");
+            Console.WriteLine("4. Transfer ");
+            Console.WriteLine("5. Exit");
 
             char selectedOption = Console.ReadKey().KeyChar;
 
             return selectedOption;
         }
 
-        public void ShowMenu() 
+        public static void ShowMenu() 
         {
-            char selectedOption;
+            char selectedOption = Menu();
 
-            do
+            switch(selectedOption)
             {
-                selectedOption = Menu();
-
-                if (selectedOption == '1' || selectedOption == '2' || selectedOption == '3' || selectedOption == '4' || selectedOption == '5')
-                {
-                    // Console.WriteLine(selectedOption);
-                    Console.Clear();
-
-                    Console.WriteLine("Do you want to go back? Press Y or N");
-
-                    char selectedChar = Console.ReadKey().KeyChar;
-                    if (selectedChar == 'y' || selectedChar == 'Y')
-                    {
-                        Console.Clear();
-                    }
-                    else if (selectedChar == 'n' || selectedChar == 'N')
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Nein? kay, bye!");
-                        Console.WriteLine("Press any key to close the console. ");
-                        Console.ReadKey();
-                        break;
-                    }
-                }
-                else
-                {
-
-                    Console.WriteLine("Invalid option");
-                }
-            } while (selectedOption != 'x');
+                case '1':
+                    Console.WriteLine(selectedOption);
+                    break;
+                case '2':
+                    Console.WriteLine(selectedOption);
+                    break;
+                case '3':
+                    Console.WriteLine(selectedOption);
+                    break;
+                case '4':
+                    Console.WriteLine(selectedOption);
+                    break;
+                case '5':
+                    Console.WriteLine(selectedOption);
+                    break;
+            }
+                 
         }
 
     }
