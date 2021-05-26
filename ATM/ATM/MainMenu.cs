@@ -6,7 +6,7 @@ namespace ATM
 {
     class MainMenu
     {
-        public static char Menu()
+        private char Menu()
         {
             Console.WriteLine("Type an option's number and face its consequences: ");
             Console.WriteLine("1. Check balance ");
@@ -15,19 +15,19 @@ namespace ATM
             Console.WriteLine("4. Transfer ");
             Console.WriteLine("5. Exit");
 
-            char selectedOption = Console.ReadKey().KeyChar;
+            char selectedOption = Console.ReadKey(true).KeyChar;
 
             return selectedOption;
         }
 
-        public static void ShowMenu() 
+        public void ShowMenu() 
         {
             char selectedOption = Menu();
 
             switch(selectedOption)
             {
                 case '1':
-                    Console.WriteLine(selectedOption);
+                    Console.WriteLine("test");
                     break;
                 case '2':
                     Console.WriteLine(selectedOption);
