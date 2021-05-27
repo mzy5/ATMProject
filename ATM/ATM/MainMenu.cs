@@ -20,34 +20,24 @@ namespace ATM
             return selectedOption;
         }
 
-        private string ShowBalanceMenu()
+        private void ShowBalanceMenu()
         {
-            return "your balance is 999 euro";
+            Console.WriteLine("your balance is 999 euro" + "\n");
         }
 
         public void ShowMenu() 
         {
-            //while(true)
-            //{
+            while (true)
+            {
                 char selectedOption = Menu();
+
+                Console.Clear();
 
                 switch (selectedOption)
                 {
                     case '1':
-                    
-                    string balance = ShowBalanceMenu();
-                    Console.Clear();
-                    Console.WriteLine(balance + "\n");
-
-                    Console.WriteLine("Press any key to go back to main menu! ");
-                    Console.ReadKey();
-                    Console.Clear();
-
-                    MainMenu mainMenu = new MainMenu();
-                    mainMenu.ShowMenu();
-
-                    break;
-
+                        ShowBalanceMenu();
+                        break;
                     case '2':
                         Console.WriteLine("test2");
                         break;
@@ -58,15 +48,17 @@ namespace ATM
                         Console.WriteLine("test4");
                         break;
                     case '5':
-                        Console.WriteLine("test5");
+                        return;
+                    default:
+                        Console.WriteLine("Please, choose one of the available options! ");
                         break;
                 }
-            
-                //if (selectedOption != 1 && selectedOption != 2 && selectedOption != 3 && selectedOption != 4 && selectedOption != 5)
-                //{
-                //    Console.WriteLine("Please, choose one of the available options! ");
-                //}
-            //}
+
+                Console.WriteLine("Press any key to go back to main menu! ");
+                Console.ReadKey();
+                Console.Clear();
+
+            }
         }
     }
 }
