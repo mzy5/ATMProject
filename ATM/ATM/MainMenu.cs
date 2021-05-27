@@ -25,6 +25,30 @@ namespace ATM
             Console.WriteLine("your balance is 999 euro" + "\n");
         }
 
+        private void Withdraw()
+        {
+            Console.WriteLine("Insert the amount to withdraw: " + "\n");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Please, remove your card and wait for the money maker to give you the selected amount: {amount}. \n");
+        }
+
+        private void TopUp()
+        {
+            Console.WriteLine("Insert the amount to top-up: ");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"The amount {amount} has been added to your current balance. \n");
+        }
+
+        private void Transfer()
+        {
+            Console.WriteLine("Insert the person to transfer to: ");
+            string personName = Console.ReadLine();
+            Console.WriteLine("Insert the amount to transfer: ");
+            int amount = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine($"The amount {amount} has been transfered to {personName}");
+        }
+
         public void ShowMenu() 
         {
             while (true)
@@ -39,13 +63,13 @@ namespace ATM
                         ShowBalanceMenu();
                         break;
                     case '2':
-                        Console.WriteLine("test2");
+                        Withdraw();
                         break;
                     case '3':
-                        Console.WriteLine("test3");
+                        TopUp();
                         break;
                     case '4':
-                        Console.WriteLine("test4");
+                        Transfer();
                         break;
                     case '5':
                         return;
@@ -57,7 +81,6 @@ namespace ATM
                 Console.WriteLine("Press any key to go back to main menu! ");
                 Console.ReadKey();
                 Console.Clear();
-
             }
         }
     }
