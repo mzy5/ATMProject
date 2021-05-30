@@ -6,6 +6,7 @@ namespace ATM
 {
     class MainMenu
     {
+        public int balance = 999;
         private char Menu()
         {
             Console.WriteLine("Type an option's number and face its consequences: ");
@@ -22,13 +23,15 @@ namespace ATM
 
         private void ShowBalanceMenu()
         {
-            Console.WriteLine("your balance is 999 euro" + "\n");
+            Console.WriteLine($"your balance is {balance} euro" + "\n");
         }
 
         private void Withdraw()
         {
             Console.WriteLine("Insert the amount to withdraw: " + "\n");
             int amount = Convert.ToInt32(Console.ReadLine());
+            balance = balance - amount;
+            Console.WriteLine($"The new balance is: {balance}");
             Console.WriteLine($"Please, remove your card and wait for the money maker to give you the selected amount: {amount}. \n");
         }
 
@@ -37,6 +40,8 @@ namespace ATM
             Console.WriteLine("Insert the amount to top-up: ");
             int amount = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine($"The amount {amount} has been added to your current balance. \n");
+            balance = balance + amount;
+            Console.WriteLine($"The new balance is: {balance}");
         }
 
         private void Transfer()
@@ -46,7 +51,9 @@ namespace ATM
             Console.WriteLine("Insert the amount to transfer: ");
             int amount = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"The amount {amount} has been transfered to {personName}");
+            Console.WriteLine($"The amount {amount} has been transfered to {personName} \n");
+            balance = balance - amount;
+            Console.WriteLine($"The new balance is: {balance}");
         }
 
         public void ShowMenu() 
